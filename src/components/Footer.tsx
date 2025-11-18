@@ -1,5 +1,6 @@
-import { Heart, Phone, Mail, MapPin } from "lucide-react";
+import { Heart, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/jm_logo.png";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -89,6 +90,7 @@ export const Footer = () => {
             <h4 className="text-lg font-bold text-foreground mb-4">
               Contact Info
             </h4>
+
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 mt-1 text-primary flex-shrink-0" />
@@ -99,6 +101,7 @@ export const Footer = () => {
                   +91 95661 44155
                 </a>
               </li>
+
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 mt-1 text-primary flex-shrink-0" />
                 <a
@@ -108,9 +111,36 @@ export const Footer = () => {
                   info@gabrieljmevents.com
                 </a>
               </li>
+
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-1 text-primary flex-shrink-0" />
                 <span>Chennai, Tamil Nadu, India</span>
+              </li>
+
+              {/* Instagram */}
+              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <FaInstagram className="h-4 w-4 mt-1 text-primary flex-shrink-0" />
+                <a
+                  href="https://www.instagram.com/gabrieljmweddingplanners?igsh=ank5Y3FhbXhpbmZ1&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  gabrieljmweddingplanners
+                </a>
+              </li>
+
+              {/* WhatsApp */}
+              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <FaWhatsapp className="h-4 w-4 mt-1 text-primary flex-shrink-0" />
+                <a
+                  href="https://wa.me/919566144155"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  +91 95661 44155
+                </a>
               </li>
             </ul>
           </div>
@@ -118,7 +148,7 @@ export const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-black">
           <p>
-            &copy; 2024 Gabriel JM Events. All rights reserved. |
+            &copy; 2025 Gabriel JM Events. All rights reserved. |
             <a
               href="https://edgezenlabs.com/"
               className="ml-1 text-indigo-600 hover:text-indigo-400 transition"

@@ -7,6 +7,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Portfolio } from "@/components/Portfolio";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 
 const Index = () => {
@@ -68,6 +69,7 @@ const Index = () => {
       <Gallery />
       <About />
       <Portfolio />
+       <TestimonialsCarousel />
 
       <Contact />
        <FloatingWhatsApp />

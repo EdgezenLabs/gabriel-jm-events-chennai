@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/jm_logo.png";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +32,11 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Gabriel JM Logo" className="h-16 w-16 object-contain" />
+            <img
+              src={logo}
+              alt="Gabriel JM Logo"
+              className="h-16 w-16 object-contain"
+            />
             <div className="hidden md:block">
               <h2 className="text-lg font-bold text-foreground">GABRIEL JM</h2>
               <p className="text-xs text-muted-foreground">Event Management</p>
@@ -70,7 +74,10 @@ export const Navigation = () => {
             >
               Contact
             </button>
-            <Button onClick={() => scrollToSection("contact")} className="gap-2">
+            <Button
+              onClick={() => (window.location.href = "tel:+919566144155")}
+              className="gap-2"
+            >
               <Phone className="h-4 w-4" />
               Call Now
             </Button>
@@ -80,7 +87,11 @@ export const Navigation = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-foreground"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
@@ -116,7 +127,10 @@ export const Navigation = () => {
             >
               Contact
             </button>
-            <Button onClick={() => scrollToSection("contact")} className="w-full gap-2">
+            <Button
+              onClick={() => (window.location.href = "tel:+919566144155")}
+              className="gap-2"
+            >
               <Phone className="h-4 w-4" />
               Call Now
             </Button>

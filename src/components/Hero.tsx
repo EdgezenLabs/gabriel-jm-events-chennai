@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/jm_logo.png";
 
 export const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -26,23 +26,28 @@ export const Hero = () => {
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
           <div className="flex justify-center mb-8">
-            <img src={logo} alt="Gabriel JM Event Management" className="h-64 w-64 object-contain animate-scale-in" />
+            <img
+              src={logo}
+              alt="Gabriel JM Event Management"
+              className="h-64 w-64 object-contain animate-scale-in"
+            />
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
             Making Your Events
             <span className="block text-primary mt-2">Truly Special</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Premier event management services in Chennai. From weddings to corporate events, 
-            we craft unforgettable experiences with elegance and precision.
+            Premier event management services in Chennai. From weddings to
+            corporate events, we craft unforgettable experiences with elegance
+            and precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Button
               size="lg"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => (window.location.href = "tel:+919566144155")}
               className="gap-2 text-lg px-8 py-6"
             >
               <Phone className="h-5 w-5" />

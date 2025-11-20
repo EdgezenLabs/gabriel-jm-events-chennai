@@ -8,7 +8,7 @@ interface MenuItem {
 const MenuShowcase = () => {
   const nonVegMenus: MenuItem[] = [
     {
-      name: "Mini Non Veg Combo I",
+      name: "Non Veg Combo I",
       items: [
         "Rava Kesari",
         "Chicken Briyani",
@@ -20,7 +20,7 @@ const MenuShowcase = () => {
       ],
     },
     {
-      name: "Mini Non Veg Combo II",
+      name: "Non Veg Combo II",
       items: [
         "Bread Halwa",
         "Tandoori Chicken",
@@ -33,7 +33,7 @@ const MenuShowcase = () => {
       ],
     },
     {
-      name: "Mini Non Veg Combo III",
+      name: "Non Veg Combo III",
       items: [
         "Kasi Halwa",
         "Chicken Lollipop",
@@ -49,7 +49,7 @@ const MenuShowcase = () => {
 
   const vegMenus: MenuItem[] = [
     {
-      name: "Mini Veg Combo I",
+      name: "Veg Combo I",
       items: [
         "Welcome Drink",
         "Rava Kesari",
@@ -62,7 +62,7 @@ const MenuShowcase = () => {
       ],
     },
     {
-      name: "Mini Veg Combo II",
+      name: "Veg Combo II",
       items: [
         "Welcome Drink",
         "Bread Halwa",
@@ -76,7 +76,7 @@ const MenuShowcase = () => {
       ],
     },
     {
-      name: "Mini Veg Combo III",
+      name: "Veg Combo III",
       items: [
         "Kasi Halwa",
         "Veg Manchurian",

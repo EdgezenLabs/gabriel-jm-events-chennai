@@ -10,26 +10,33 @@ const WhyChooseUs = () => {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    const animateExperience = () => {
+      const duration = 2000;
+      const steps = 60;
+      const increment = 15 / steps;
+      const stepDuration = duration / steps;
 
-    const duration = 2000;
-    const steps = 60;
-    const increment = 15 / steps;
-    const stepDuration = duration / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= 15) {
+          setExperience(15);
+          clearInterval(timer);
+        } else {
+          setExperience(Math.floor(current));
+        }
+      }, stepDuration);
+    };
 
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= 15) {
-        setExperience(15);
-        clearInterval(timer);
-      } else {
-        setExperience(Math.floor(current));
-      }
-    }, stepDuration);
+    animateExperience();
 
-    return () => clearInterval(timer);
-  }, [isVisible]);
+    const interval = setInterval(() => {
+      setExperience(0);
+      animateExperience();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const reasons = [
     {
@@ -143,17 +150,6 @@ const WhyChooseUs = () => {
                     +
                   </div>
                 </div>
-
-                {/* <div className="grid grid-cols-3 gap-4 md:gap-6">
-                  <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-4 transform hover:scale-105 transition-transform duration-300">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">
-                      98%
-                    </div>
-                    <div className="text-xs md:text-sm text-white/80">
-                      Satisfaction
-                    </div>
-                  </div>
-                </div> */}
               </div>
 
               <div className="absolute -bottom-12 -right-12 w-48 h-48 md:w-64 md:h-64 bg-white/5 rounded-full blur-3xl"></div>

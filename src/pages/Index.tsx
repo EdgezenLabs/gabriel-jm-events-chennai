@@ -8,6 +8,9 @@ import { Footer } from "@/components/Footer";
 import { Portfolio } from "@/components/Portfolio";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import CateringServices from "@/components/CateringServices";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import MenuShowcase from "@/components/MenuShowcase";
 
 
 const Index = () => {
@@ -66,6 +69,9 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Services />
+      <CateringServices/>
+      <MenuShowcase />
+      <WhyChooseUs/>
       <Gallery />
       <About />
       <Portfolio />

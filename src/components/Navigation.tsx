@@ -43,6 +43,15 @@ export const Navigation = () => {
             </div>
           </div>
 
+          <div
+            className="hidden md:block cursor-pointer"
+            onClick={() => scrollToSection("catering")}
+          >
+            <p className="text-lg text-muted-foreground">Focusing on</p>
+            <h2 className="text-2xl font-bold text-foreground">Catering</h2>
+          </div>
+
+
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("home")}

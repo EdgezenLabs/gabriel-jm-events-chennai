@@ -51,14 +51,14 @@ const WhyChooseUs = () => {
       icon: Zap,
       title: "Timely Delivery",
       description:
-        "Efficient workflows and agile methodologies ensure timely project completion",
+        "We prioritize punctuality so you never have to wait—your orders reach you exactly when needed.",
     },
     {
       number: "03",
       icon: CheckCircle,
       title: "Quality Guarantee",
       description:
-        "Rigorous quality standards and continuous improvement drive our success",
+        "Uncompromising commitment to quality—only the finest ingredients and preparation methods make the cut.",
     },
   ];
 
@@ -112,6 +112,9 @@ const WhyChooseUs = () => {
                         {reason.title}
                       </h3>
                     </div>
+                    <p className="text-slate-600 text-sm md:text-base">
+                      {reason.description}
+                    </p>
                   </div>
                 </div>
               );

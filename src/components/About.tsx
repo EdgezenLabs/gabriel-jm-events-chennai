@@ -1,18 +1,28 @@
-import { Award, Users } from 'lucide-react';
+import { Award, Users } from "lucide-react";
 import jmEventsLogo from "@/assets/image_2.jpg";
 
 export function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-br from-amber-50 to-orange-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Gabriel JM Events</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              About Gabriel JM Events
+            </h2>
             <p className="text-lg text-gray-700 mb-6">
-              With over a decade of experience in event management, we've perfected the art of creating extraordinary experiences. Our passionate team of event specialists brings creativity, precision, and dedication to every project.
+              With over a decade of experience in event management, we've
+              perfected the art of creating extraordinary experiences. Our
+              passionate team of event specialists brings creativity, precision,
+              and dedication to every project.
             </p>
             <p className="text-lg text-gray-700 mb-8">
-              From the initial concept to the final moment, we handle every detail with care, ensuring your event exceeds expectations and leaves a lasting impression on all who attend.
+              From the initial concept to the final moment, we handle every
+              detail with care, ensuring your event exceeds expectations and
+              leaves a lasting impression on all who attend.
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">

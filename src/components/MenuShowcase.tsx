@@ -1,389 +1,98 @@
 import React, { useState } from "react";
-import { ChefHat, Sparkles } from "lucide-react";
+import Dish from "@/assets/photo_dish.jpeg";
+import Dish2 from "@/assets/dish_2.png";
+import dish3 from "@/assets/dish3.jpg";
+import dish4 from "@/assets/dish4.jpg";
+import dish5 from "@/assets/dish5.webp";
 
-/**
- * FullMenuShowcase.tsx
- *
- * - Single giant component containing all menus parsed from uploaded PDFs.
- * - Grouped by category (Non-Veg Combos, Veg Combos, Snacks & Rolls, Soups, Sweets,
- *   Tiffin & Breads, Meals & Rice, Sides & Curry, Dinner Specials, etc.)
- * - Default preview: first 7 items (user chose option C).
- * - Per-card "See More ▼ (count)" / "See Less ▲" toggles.
- *
- * Source: Menus extracted from uploaded PDFs. File citations:
- * - PDF 1 (Non-Veg Combos etc.): :contentReference[oaicite:0]{index=0}
- * - PDF 2 (Snacks, Tiffin, Meals, Dinner menus etc.): :contentReference[oaicite:1]{index=1}
- *
- * Drop into your project and ensure Tailwind CSS is available.
- */
 
-/* ---------- Types ---------- */
-type MenuItem = {
-  name: string;
-  items: string[];
-};
-
-/* ---------- Component ---------- */
 const FullMenuShowcase: React.FC = () => {
-  // how many items to show before "See More"
-  const PREVIEW_COUNT = 7;
-
-  // ---------------------------
-  // Data (inlined from PDFs)
-  // ---------------------------
-
-  // Non-Veg Combos I - VI (from PDF 1). :contentReference[oaicite:2]{index=2}
-
-  const nonVegCombos: MenuItem[] = [
+  const menus = [
     {
-      name: "Non Veg Combo I",
+      title: "SPECIAL MENU-1",
       items: [
-        "Welcome Drink",
-        "Rava Kesari",
-        "Chicken Briyani",
-        "Chicken (2 pcs)",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Ice-Cream / Sweet Beeda",
-        "Water Bottle",
-      ],
-    },
-    {
-      name: "Non Veg Combo II",
-      items: [
-        "Welcome Drink",
-        "Bread Halwa",
-        "Tandoori Chicken (1/4)",
-        "Mutton Briyani",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Pulka (2 pcs)",
-        "Chicken Masala",
-        "Ice-Cream / Sweet Beeda",
-      ],
-    },
-    {
-      name: "Non Veg Combo III",
-      items: [
-        "Welcome Drink",
-        "Kasi Halwa",
-        "Chicken Lollipop (2 pcs)",
-        "Chicken Biriyani",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "White Rice",
-        "National Poriyal",
-        "Sambar, Rasam, Curd",
-        "Kulfi and Sweet Beeda",
-      ],
-    },
-    {
-      name: "Non Veg Combo IV",
-      items: [
-        "Welcome Drink",
-        "Pineapple Pudding",
-        "Non Veg Soup",
-        "Mutton Pepper Fry",
-        "Mutton Biriyani",
-        "Idiyappam & Paya",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Water Bottle",
-        "Curd Rice & Pickle",
-        "Choco Bar & Sweet Beeda",
-      ],
-    },
-    {
-      name: "Non Veg Combo V",
-      items: [
-        "Welcome Drink",
-        "Sweet",
-        "Chicken 65 (2 pcs)",
-        "Nethili Fry",
-        "Chicken Biriyani",
-        "Parota",
-        "Mutton Masala",
-        "White Rice",
-        "Sambar",
-        "Potato Kara Fry",
-        "Butter Milk",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Water Bottle",
-        "Cassata & Sweet Beeda",
-      ],
-    },
-    {
-      name: "Non Veg Combo VI",
-      items: [
-        "Welcome Drink",
-        "Badam Roll",
-        "Prawn Pepper Fry",
-        "Mutton Kola (1 pc)",
-        "Mutton Biriyani",
-        "Chicken Kotthu Parota",
-        "White Rice",
-        "Small Onion Sambar",
-        "Kara Kulambu",
-        "Rasam, Appalam",
-        "Brinjal Mocha Fry",
-        "Butter Milk & Pickle",
-        "Onion Raitha",
-        "Plain Chalna",
-        "Water Bottle",
-        "Ice Cream & Sweet Beeda",
-      ],
-    },
-  ];
-
-  const MininonVegCombos: MenuItem[] = [
-    {
-      name: " Mini Non Veg Combo I",
-      items: [
-        "Welcome Drink",
-        "Rava Kesari",
-        "Chicken Briyani",
-        "Chicken (2 pcs)",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Ice-Cream / Sweet Beeda",
-        "Water Bottle",
-      ],
-    },
-
-    {
-      name: "Mini Non Veg Combo II",
-      items: [
-        "Welcome Drink",
-        "Bread Halwa",
-        "Tandoori Chicken (1/4)",
-        "Mutton Briyani",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Pulka (2 pcs)",
-        "Chicken Masala",
-        "Ice-Cream / Sweet Beeda",
-      ],
-    },
-
-    {
-      name: "Mini Non Veg Combo III",
-      items: [
-        "Welcome Drink",
-        "Kasi Halwa",
-        "Chicken Lollipop (2 pcs)",
-        "Chicken Biriyani",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "National Poriyal",
-        "White Rice",
-        "Veg Sambar",
-        "Rasam",
-        "Curd",
-        "Pickle",
-        "Water Bottle",
-        "Kulfi",
-        "Sweet Beeda",
-      ],
-    },
-
-    {
-      name: "Mini Non Veg Combo IV",
-      items: [
-        "Welcome Drink",
-        "Pineapple Pudding",
-        "Non Veg Soup",
-        "Mutton Pepper Fry",
-        "Mutton Biriyani",
-        "Idiyappam & Paya",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Water Bottle",
-        "Curd Rice & Pickle",
-        "Choco Bar & Sweet Beeda",
-      ],
-    },
-
-    {
-      name: "Mini Non Veg Combo V",
-      items: [
-        "Welcome Drink",
-        "Sweet",
-        "Chicken 65 (2 pcs)",
-        "Nethili Fry",
-        "Chicken Biriyani",
-        "Parota",
-        "Mutton Masala",
-        "White Rice",
-        "Sambar",
-        "Potato Kara Fry",
-        "Butter Milk",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Water Bottle",
-        "Cassata & Sweet Beeda",
-      ],
-    },
-
-    {
-      name: "Mini Non Veg Combo VI",
-      items: [
-        "Welcome Drink",
-        "Badam Roll",
-        "Prawn Pepper Fry",
-        "Mutton Kola (1 pc)",
-        "Mutton Biriyani",
-        "Chicken Koththu Parota",
-        "White Rice",
-        "Small Onion Sambar",
-        "Kara Kulambu",
-        "Rasam",
-        "Appalam",
-        "Brinjal Mocha Fry",
-        "Butter Milk & Pickle",
-        "Onion Raitha",
-        "Plain Chalna",
-        "Water Bottle",
-        "Ice Cream & Sweet Beeda",
-      ],
-    },
-  ];
-
-  // Veg Combos I - III (from PDF 1). :contentReference[oaicite:3]{index=3}
-  const vegCombos: MenuItem[] = [
-    {
-      name: "Veg Combo I",
-      items: [
-        "Welcome Drink",
-        "Rava Kesari",
-        "Veg Briyani",
-        "Paneer Tikka",
-        "Onion Raitha",
-        "Brinjal Gravy",
-        "Ice Cream / Sweet Beeda",
-        "3 Types Of Porial Or Kootu (As Your Wish)",
-      ],
-    },
-    {
-      name: "Veg Combo II",
-      items: [
-        "Welcome Drink",
-        "Bread Halwa",
-        "Paneer Butter Masala",
-        "Veg Briyani",
-        "Curd Rice",
-        "Onion Raitha & Brinjal Gravy",
-        "Pulka",
-        "Dal Fry",
-        "Ice Cream / Sweet Beeda",
-      ],
-    },
-    {
-      name: "Veg Combo III",
-      items: [
-        "Welcome Drink",
-        "Kasi Halwa",
-        "Veg Manchurian",
-        "Veg Biriyani",
-        "Onion Raitha & Brinjal Gravy",
-        "White Rice",
-        "3 Types Of Porial Or Kootu (As Your Wish)",
-        "Sambar, Rasam, Curd",
-        "Kulfi and Sweet Beeda",
-      ],
-    },
-  ];
-
-  // Snacks, Rolls, Soups, Sweets, Tiffin & Breads, Meals & Rice, Dinner specials (from PDF 2). :contentReference[oaicite:4]{index=4}
-  const snacksAndRolls: MenuItem[] = [
-    {
-      name: "Snacks & Rolls",
-      items: [
-        "Veg Spring Roll",
-        "Veg Lollipop",
-        "Paneer Bujjiroll",
-        "Culcutta Vada Pav",
-      ],
-    },
-  ];
-
-  const soupsAndSweets: MenuItem[] = [
-    {
-      name: "Soups",
-      items: [
-        "Sweet Corn Soup",
-        "Veg Corn Soup",
-        "Tomato Soup",
-        "Mushroom Soup",
-        "Baby Corn Soup",
-      ],
-    },
-    {
-      name: "Sweets",
-      items: [
-        "Rasmalai",
+        "Sweet corn soup",
+        "Veg corn soup",
+        "Malai sandwich",
+        "Anarchali sweets",
+        "Rasamalai Janghri",
+        "Ilaiadai",
         "Ilaneer Payasam",
-        "Makkhan Peda",
-        "Badam Halwa",
-        "Vegetable Halwa",
-        "Jamun Malai",
+        "Veg sandwich",
+        "Veg Lollypop",
+        "Paneer bujjiroll",
+        "Calcutta curd vada",
+        "Rumali roti, Pulkha",
+        "Mushroom pepper masala",
+        "Ilaneer idli",
+        "Pudhina chutney",
+        "Appam,Cauliflower Paya",
+        "Idiappam , White kurma",
+        "Hyderabhad biryani",
+        "White rice",
+        "Bisibele bath",
+        "Chettinad noodles",
+        "Vegetable munchurian",
+        "Mini potato fry",
+        "Cauliflower 65",
+        "Pinapple Rasam",
+        "Beans punjab curry",
+        "Pickle,Apalam",
+      ],
+      image: Dish2,
+    },
+    {
+      title: "SPECIAL MENU-2",
+      items: [
+        "Tomato,Mushroom Soup",
+        "Basanthi",
         "Rasagulla",
-        "Kajukathli",
-      ],
-    },
-  ];
-
-  const tiffinAndBreads: MenuItem[] = [
-    {
-      name: "Tiffin & Breads",
-      items: [
-        "Romali Roti",
-        "Pulka",
-        "Mushroom Pepper Masala",
-        "White Kurma",
-        "Aappam",
-        "Illaneer Idli",
-        "Idiyappam",
-        "Pudhina Chutney",
-        "Rumali Roti",
-        "Stuffed Naan",
-      ],
-    },
-  ];
-
-  const mealsAndRice: MenuItem[] = [
-    {
-      name: "Meals & Rice",
-      items: [
-        "White Rice",
-        "Bisibele Bath",
-        "Hyderabadi Biriyani",
-        "Chettinad Noodles",
-        "Veg Dum Biriyani",
-        "Mushroom Biriyani",
-      ],
-    },
-  ];
-
-  const sidesAndCurries: MenuItem[] = [
-    {
-      name: "Sides & Curry",
-      items: [
-        "Small Onion Sambar",
-        "Gobi Manjurian Semidry",
-        "Baby Corn Semi Fry",
+        "Badam color Sweet",
+        "Paladin Pradhaman",
+        "Veg Khabab",
+        "Parween Paneer",
+        "Methi Roti",
+        "Dal Makhani",
+        "Kara Pani aaram",
+        "Dangor chutney",
+        "Kula puttu",
+        "Adai aviyal",
+        "Small onion sambar",
+        "Gobi manjurian semidry",
+        "Baby corn semidry",
+        "senai chops",
         "Mushroom 65",
-        "Mysore Rasam",
+        "Mysore rasam",
+        "Fried Rice",
+        "Vangi Bath & White Rice",
+        "Semiya Bagala Bath",
+        "Mushroom Dosa",
         "National Poriyal",
         "Mango Pickle",
         "Appalam & Masala Papad",
-        "Kula Puttu",
-        "Adai Aviyal",
+        "Mineral Water Bottle",
       ],
+      image: Dish,
     },
     {
-      name: "Rice & Curry (selected)",
+      title: "SPECIAL MENU-3",
       items: [
+        "Welcome Juices",
+        "Grape Juice",
+        "Watermelon Juice",
+        "Fruit Punch",
+        "Makkanpedabadam",
+        "Halwa",
+        "Vegetable Halwa",
+        "Vegetable Cutlet & Badam Kheer",
+        "Velari Thayir Pachadi",
+        "Cauliflower, Carrot, Beans Poriyal",
+        "Kathari Mosai Chops & Potato Chips",
+        "Methari Poori",
+        "Channa Masala",
+        "Podi Dosai",
+        "Coconut Chutney",
+        "Coriander Chutney",
         "Mushroom Biriyani",
         "Paneer Kurma",
         "Onion Raitha",
@@ -391,308 +100,191 @@ const FullMenuShowcase: React.FC = () => {
         "Bisibele Bath",
         "White Rice",
         "Mysore Rasam",
+        "Pagala Bath",
+        "Mango Pickle",
+        "More Milagai",
+        "Appalam",
+        "Javarasi Vadam",
+        "Water Bottle",
       ],
+      image: dish3,
     },
-  ];
-
-  const dinnerSpecials: MenuItem[] = [
     {
-      name: "Dinner Special Menu - 1",
+      title: "SPECIAL MENU-4",
       items: [
-        "Sweet Corn Soup",
-        "Veg Corn Soup",
-        "Malai Sandwich",
-        "Anarchali Sweets",
+        "Grape Juice",
+        "Watermelon Juice",
+        "Fruit Punch",
+        "Vegetable Soup",
         "Rasamalai",
-        "Vegetable Manchurian",
-        "Mini Potato Fry",
-        "Cauliflower 65",
-        "Methari Poori",
-        "Channa Masala",
-        "Podi Dosai",
+        "Kaju Kathli",
+        "Veg Spring Roll",
+        "Thayir Vadai",
+        "Onion Raitha",
+        "Vegetable Kurma",
+        "Beans Punjab Curry",
+        "Urulai Pirai & Potato Chips",
+        "Rumali Roti",
+        "Paneer Butter Masala",
+        "Onion Podi Uthappam",
+        "Coriander Chutney",
+        "Tomato Chutney",
+        "Veg Dum Biriyani",
+        "Bisibele Bath",
+        "White Rice",
+        "Tomato Rasam",
+        "Pagala Bath",
+        "Mango Pickle",
+        "More Milagai",
+        "Appalam",
+        "Javarasi Vadam",
+        "Water Bottle",
       ],
+      image: dish4,
     },
     {
-      name: "Dinner Special Menu - 2",
+      title: "SPECIAL MENU-5",
       items: [
-        "Veg Khabab",
-        "Parween Paneer",
-        "Cashew Fry",
-        "Janghri Curd Vada",
-        "Stuffed Naan",
-        "Kadai Paneer",
-        "Methi Rotti",
-        "Dal Makhani",
-        "Fried Rice",
-      ],
-    },
-    {
-      name: "Dinner Special Menu - 3",
-      items: [
-        "Welcome Juices: Grape Juice, Watermelon Juice, Fruit Punch",
+        "Grape Juice",
+        "Watermelon Juice",
+        "Fruit Punch",
         "Baby Corn Soup",
         "Jamun Malai",
         "Badam Halwa",
-        "Panner Kebab",
+        "Paneer Kebab",
         "Cashew Pakoda",
+        "Rumali Roti, Pulkha",
+        "Mushroom Pepper Masala",
+        "Ilaneer Idli",
+        "Pudhina Chutney",
+        "Aapam, Cauliflower Paaya",
+        "Idiyappam, White Kurma",
+        "Hyderabad Biryani",
+        "White Rice",
+        "Bisibele Bath",
+        "Chettinad Noodles",
         "Vegetable Manchurian",
         "Mini Potato Fry",
         "Cauliflower 65",
+        "Pineapple Rasam",
+        "Beans Punjab Curry",
+        "Pickle, Apalam",
       ],
+      image: dish5,
     },
+  
   ];
 
-  const sweetsAndMisc: MenuItem[] = [
-    {
-      name: "Sweets & Misc",
-      items: [
-        "Makkhan Peda",
-        "Badam Halwa",
-        "Vegetable Halwa",
-        "Vegetable Cutlet",
-        "Badam Kheer",
-        "Rasagulla",
-        "Kajukathli",
-      ],
-    },
-  ];
+  const [active, setActive] = useState(0); // menu1 open initially
 
-  // ---------------------------
-  // UI state - per-card expansion
-  // ---------------------------
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  // ---- DESKTOP COLUMN LOGIC ----
+  const items = menus[active].items;
+  const rows = 10; // Number of rows
+  const columns = Math.ceil(items.length / rows);
 
-  const toggleExpand = (key: string) =>
-    setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
-
-  // reusable renderer for a single card
-  const renderMenuCard = (
-    menu: MenuItem,
-    accent: "amber" | "red" | "green" = "amber"
-  ) => {
-    const isExpanded = !!expanded[menu.name];
-    const visibleItems = isExpanded
-      ? menu.items
-      : menu.items.slice(0, PREVIEW_COUNT);
-
-    const bulletClass =
-      accent === "red"
-        ? "text-red-500"
-        : accent === "green"
-        ? "text-green-500"
-        : "text-amber-500";
-    const buttonClass =
-      accent === "red"
-        ? "text-red-600"
-        : accent === "green"
-        ? "text-green-600"
-        : "text-amber-600";
-
-    return (
-      <div
-        key={menu.name}
-        className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
-      >
-        <div
-          className={`p-6 text-center ${
-            accent === "red"
-              ? "bg-gradient-to-r from-red-500 to-orange-500"
-              : accent === "green"
-              ? "bg-gradient-to-r from-green-500 to-emerald-500"
-              : "bg-gradient-to-r from-amber-500 to-orange-500"
-          }`}
-        >
-          <h3 className="text-xl font-bold text-white tracking-wide">
-            {menu.name}
-          </h3>
-        </div>
-
-        <div className="p-6">
-          <ul className="space-y-3">
-            {visibleItems.map((item, idx) => (
-              <li
-                key={`${menu.name}-${idx}`}
-                className="flex items-start gap-2 text-slate-700"
-              >
-                <span className={`${bulletClass} mt-1 flex-shrink-0`}>•</span>
-                <span className="text-sm font-medium">{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          {menu.items.length > PREVIEW_COUNT && (
-            <button
-              onClick={() => toggleExpand(menu.name)}
-              className={`mt-4 ${buttonClass} font-semibold text-sm hover:underline`}
-            >
-              {isExpanded ? "See Less ▲" : `See More ▼ (${menu.items.length})`}
-            </button>
-          )}
-        </div>
-      </div>
-    );
-  };
-
-  // ---------------------------
-  // Render
-  // ---------------------------
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-10">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-500 rounded-full mb-4">
-            <ChefHat className="w-8 h-8 text-white" />
+    <div className="w-full min-h-screen bg-black text-white p-4 md:p-10 font-sans">
+      {/* ------------------ */}
+      {/* MOBILE ACCORDION */}
+      {/* ------------------ */}
+      <div className="block md:hidden">
+        {menus.map((menu, index) => (
+          <div key={index} className="border-b border-gray-700 pb-2">
+            {/* TITLE BUTTON */}
+            <button
+              onClick={() => setActive(index)}
+              className={`
+                w-full text-left px-4 py-3 text-base font-semibold uppercase
+                ${active === index ? "text-amber-400" : "text-gray-300"}
+              `}
+            >
+              {menu.title}
+            </button>
+
+            {/* EXPANDED CONTENT */}
+            {active === index && (
+              <div className="px-4 pt-2 pb-4">
+                <ol className="list-decimal list-inside space-y-2 text-lg">
+                  {menu.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ol>
+
+                <img
+                  src={menu.image}
+                  alt={menu.title}
+                  className="mt-4 rounded-lg shadow-lg w-full object-cover"
+                />
+              </div>
+            )}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-3">
-            Our Full Food Menu
-          </h1>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Complete curated list: combos, snacks, tiffin, meals, sides, sweets
-            and dinner specials.
-          </p>
+        ))}
+      </div>
+
+      {/* ------------------ */}
+      {/* DESKTOP VIEW */}
+      {/* ------------------ */}
+      <div className="hidden md:block">
+        {/* TAB HEADERS */}
+        <div className="flex overflow-x-auto border-b border-gray-600 mb-8">
+          {menus.map((menu, index) => (
+            <button
+              key={index}
+              onClick={() => setActive(index)}
+              className={`
+                px-6 py-3 text-lg font-semibold uppercase whitespace-nowrap
+                ${
+                  active === index
+                    ? "text-amber-400 border-b-2 border-amber-400"
+                    : "text-gray-400 hover:text-white"
+                }
+              `}
+            >
+              {menu.title}
+            </button>
+          ))}
         </div>
 
-        {/* Non-Veg Combos */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">
-              Non-Veg Combos
-            </h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
+        {/* CONTENT BOX */}
+        <div className="border border-gray-700 rounded-xl p-8 bg-[url('/wood-bg.jpg')] bg-cover">
+          <h2 className="text-2xl font-bold text-amber-400 mb-4">
+            {menus[active].title}
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {nonVegCombos.map((m) => renderMenuCard(m, "red"))}
-          </div>
-        </section>
+          <div className="grid grid-cols-2 gap-8">
+            {/* LEFT SIDE — COLUMN-WISE LIST */}
+            <div className="flex gap-10">
+              {/* Generate column blocks */}
+              {[...Array(columns)].map((_, colIndex) => (
+                <div key={colIndex}>
+                  {[...Array(rows)].map((_, rowIndex) => {
+                    const itemIndex = colIndex * rows + rowIndex;
+                    const item = items[itemIndex];
 
-        {/* Veg Combos */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-green-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Veg Combos</h2>
-            <div className="h-px bg-green-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {vegCombos.map((m) => renderMenuCard(m, "green"))}
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">
-              Mini Non-Veg Combos
-            </h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MininonVegCombos.map((m) => renderMenuCard(m, "red"))}
-          </div>
-        </section>
-        {/* Snacks & Rolls */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">
-              Snacks & Rolls
-            </h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {snacksAndRolls.map((m) => renderMenuCard(m, "amber"))}
-          </div>
-        </section>
-
-        {/* Soups & Sweets */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">
-              Soups & Sweets
-            </h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {soupsAndSweets.map((m) => renderMenuCard(m, "amber"))}
-            {sweetsAndMisc.map((m) => renderMenuCard(m, "amber"))}
-          </div>
-        </section>
-
-        {/* Tiffin, Breads, Meals & Rice */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">
-              Tiffin, Breads & Meals
-            </h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tiffinAndBreads.map((m) => renderMenuCard(m, "amber"))}
-            {mealsAndRice.map((m) => renderMenuCard(m, "amber"))}
-          </div>
-        </section>
-
-        {/* Sides & Curries */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Sides & Curry</h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sidesAndCurries.map((m) => renderMenuCard(m, "amber"))}
-          </div>
-        </section>
-
-        {/* Dinner Specials */}
-        <section className="mb-12">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">
-              Dinner Specials
-            </h2>
-            <div className="h-px bg-amber-500 w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {dinnerSpecials.map((m) => renderMenuCard(m, "amber"))}
-          </div>
-        </section>
-
-        {/* Customization CTA */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl shadow-2xl p-8 md:p-12 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-6">
-              <Sparkles className="w-8 h-8 text-amber-500" />
+                    return (
+                      item && (
+                        <div key={rowIndex} className="mb-2">
+                          <span className="text-base">
+                            {itemIndex + 1}. {item}
+                          </span>
+                        </div>
+                      )
+                    );
+                  })}
+                </div>
+              ))}
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Your Menu, Your Style
-            </h2>
-            
-            <h3 className="text-2xl md:text-2xl  text-white mb-4">
-           
-              We customize both Veg and Non-Veg menus completely to your taste.
-              Choose your favorites and create the perfect combo—just the way
-              you want.
-            </h3>
-
-            
-            
+            {/* RIGHT SIDE — IMAGE */}
+            <div className="flex justify-center">
+              <img
+                src={menus[active].image}
+                alt={menus[active].title}
+                className="rounded-lg shadow-lg w-full max-w-md object-cover"
+              />
+            </div>
           </div>
         </div>
-
-        {/* Footer note */}
       </div>
     </div>
   );

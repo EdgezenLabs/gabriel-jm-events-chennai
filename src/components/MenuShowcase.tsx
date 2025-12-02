@@ -33,7 +33,7 @@ const FullMenuShowcase: React.FC = () => {
   // ---------------------------
 
   // Non-Veg Combos I - VI (from PDF 1). :contentReference[oaicite:2]{index=2}
-  
+
   const nonVegCombos: MenuItem[] = [
     {
       name: "Non Veg Combo I",
@@ -136,119 +136,117 @@ const FullMenuShowcase: React.FC = () => {
     },
   ];
 
-
-   const MininonVegCombos: MenuItem[] = [
+  const MininonVegCombos: MenuItem[] = [
     {
       name: " Mini Non Veg Combo I",
       items: [
-"Welcome Drink",
-"Rava Kesari",
-"Chicken Briyani",
-"Chicken (2 pcs)",
-"Onion Raitha",
-"Brinjal Gravy",
-"Ice-Cream / Sweet Beeda",
-"Water Bottle",
-
+        "Welcome Drink",
+        "Rava Kesari",
+        "Chicken Briyani",
+        "Chicken (2 pcs)",
+        "Onion Raitha",
+        "Brinjal Gravy",
+        "Ice-Cream / Sweet Beeda",
+        "Water Bottle",
       ],
     },
-  
-  {
-    name: "Mini Non Veg Combo II",
-    items: [
-      "Welcome Drink",
-      "Bread Halwa",
-      "Tandoori Chicken (1/4)",
-      "Mutton Briyani",
-      "Onion Raitha",
-      "Brinjal Gravy",
-      "Pulka (2 pcs)",
-      "Chicken Masala",
-      "Ice-Cream / Sweet Beeda",
-    ],
-  },
 
-  {
-    name: "Mini Non Veg Combo III",
-    items: [
-      "Welcome Drink",
-      "Kasi Halwa",
-      "Chicken Lollipop (2 pcs)",
-      "Chicken Biriyani",
-      "Onion Raitha",
-      "Brinjal Gravy",
-      "National Poriyal",
-      "White Rice",
-      "Veg Sambar",
-      "Rasam",
-      "Curd",
-      "Pickle",
-      "Water Bottle",
-      "Kulfi",
-      "Sweet Beeda",
-    ],
-  },
+    {
+      name: "Mini Non Veg Combo II",
+      items: [
+        "Welcome Drink",
+        "Bread Halwa",
+        "Tandoori Chicken (1/4)",
+        "Mutton Briyani",
+        "Onion Raitha",
+        "Brinjal Gravy",
+        "Pulka (2 pcs)",
+        "Chicken Masala",
+        "Ice-Cream / Sweet Beeda",
+      ],
+    },
 
-  {
-    name: "Mini Non Veg Combo IV",
-    items: [
-      "Welcome Drink",
-      "Pineapple Pudding",
-      "Non Veg Soup",
-      "Mutton Pepper Fry",
-      "Mutton Biriyani",
-      "Idiyappam & Paya",
-      "Onion Raitha",
-      "Brinjal Gravy",
-      "Water Bottle",
-      "Curd Rice & Pickle",
-      "Choco Bar & Sweet Beeda",
-    ],
-  },
+    {
+      name: "Mini Non Veg Combo III",
+      items: [
+        "Welcome Drink",
+        "Kasi Halwa",
+        "Chicken Lollipop (2 pcs)",
+        "Chicken Biriyani",
+        "Onion Raitha",
+        "Brinjal Gravy",
+        "National Poriyal",
+        "White Rice",
+        "Veg Sambar",
+        "Rasam",
+        "Curd",
+        "Pickle",
+        "Water Bottle",
+        "Kulfi",
+        "Sweet Beeda",
+      ],
+    },
 
-  {
-    name: "Mini Non Veg Combo V",
-    items: [
-      "Welcome Drink",
-      "Sweet",
-      "Chicken 65 (2 pcs)",
-      "Nethili Fry",
-      "Chicken Biriyani",
-      "Parota",
-      "Mutton Masala",
-      "White Rice",
-      "Sambar",
-      "Potato Kara Fry",
-      "Butter Milk",
-      "Onion Raitha",
-      "Brinjal Gravy",
-      "Water Bottle",
-      "Cassata & Sweet Beeda",
-    ],
-  },
+    {
+      name: "Mini Non Veg Combo IV",
+      items: [
+        "Welcome Drink",
+        "Pineapple Pudding",
+        "Non Veg Soup",
+        "Mutton Pepper Fry",
+        "Mutton Biriyani",
+        "Idiyappam & Paya",
+        "Onion Raitha",
+        "Brinjal Gravy",
+        "Water Bottle",
+        "Curd Rice & Pickle",
+        "Choco Bar & Sweet Beeda",
+      ],
+    },
 
-  {
-    name: "Mini Non Veg Combo VI",
-    items: [
-      "Welcome Drink",
-      "Badam Roll",
-      "Prawn Pepper Fry",
-      "Mutton Kola (1 pc)",
-      "Mutton Biriyani",
-      "Chicken Koththu Parota",
-      "White Rice",
-      "Small Onion Sambar",
-      "Kara Kulambu",
-      "Rasam",
-      "Appalam",
-      "Brinjal Mocha Fry",
-      "Butter Milk & Pickle",
-      "Onion Raitha",
-      "Plain Chalna",
-      "Water Bottle",
-      "Ice Cream & Sweet Beeda",
-    ],
-  },
+    {
+      name: "Mini Non Veg Combo V",
+      items: [
+        "Welcome Drink",
+        "Sweet",
+        "Chicken 65 (2 pcs)",
+        "Nethili Fry",
+        "Chicken Biriyani",
+        "Parota",
+        "Mutton Masala",
+        "White Rice",
+        "Sambar",
+        "Potato Kara Fry",
+        "Butter Milk",
+        "Onion Raitha",
+        "Brinjal Gravy",
+        "Water Bottle",
+        "Cassata & Sweet Beeda",
+      ],
+    },
+
+    {
+      name: "Mini Non Veg Combo VI",
+      items: [
+        "Welcome Drink",
+        "Badam Roll",
+        "Prawn Pepper Fry",
+        "Mutton Kola (1 pc)",
+        "Mutton Biriyani",
+        "Chicken Koththu Parota",
+        "White Rice",
+        "Small Onion Sambar",
+        "Kara Kulambu",
+        "Rasam",
+        "Appalam",
+        "Brinjal Mocha Fry",
+        "Butter Milk & Pickle",
+        "Onion Raitha",
+        "Plain Chalna",
+        "Water Bottle",
+        "Ice Cream & Sweet Beeda",
+      ],
+    },
   ];
 
   // Veg Combos I - III (from PDF 1). :contentReference[oaicite:3]{index=3}
@@ -470,17 +468,33 @@ const FullMenuShowcase: React.FC = () => {
     setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
 
   // reusable renderer for a single card
-  const renderMenuCard = (menu: MenuItem, accent: "amber" | "red" | "green" = "amber") => {
+  const renderMenuCard = (
+    menu: MenuItem,
+    accent: "amber" | "red" | "green" = "amber"
+  ) => {
     const isExpanded = !!expanded[menu.name];
-    const visibleItems = isExpanded ? menu.items : menu.items.slice(0, PREVIEW_COUNT);
+    const visibleItems = isExpanded
+      ? menu.items
+      : menu.items.slice(0, PREVIEW_COUNT);
 
     const bulletClass =
-      accent === "red" ? "text-red-500" : accent === "green" ? "text-green-500" : "text-amber-500";
+      accent === "red"
+        ? "text-red-500"
+        : accent === "green"
+        ? "text-green-500"
+        : "text-amber-500";
     const buttonClass =
-      accent === "red" ? "text-red-600" : accent === "green" ? "text-green-600" : "text-amber-600";
+      accent === "red"
+        ? "text-red-600"
+        : accent === "green"
+        ? "text-green-600"
+        : "text-amber-600";
 
     return (
-      <div key={menu.name} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+      <div
+        key={menu.name}
+        className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+      >
         <div
           className={`p-6 text-center ${
             accent === "red"
@@ -490,13 +504,18 @@ const FullMenuShowcase: React.FC = () => {
               : "bg-gradient-to-r from-amber-500 to-orange-500"
           }`}
         >
-          <h3 className="text-xl font-bold text-white tracking-wide">{menu.name}</h3>
+          <h3 className="text-xl font-bold text-white tracking-wide">
+            {menu.name}
+          </h3>
         </div>
 
         <div className="p-6">
           <ul className="space-y-3">
             {visibleItems.map((item, idx) => (
-              <li key={`${menu.name}-${idx}`} className="flex items-start gap-2 text-slate-700">
+              <li
+                key={`${menu.name}-${idx}`}
+                className="flex items-start gap-2 text-slate-700"
+              >
                 <span className={`${bulletClass} mt-1 flex-shrink-0`}>•</span>
                 <span className="text-sm font-medium">{item}</span>
               </li>
@@ -527,9 +546,12 @@ const FullMenuShowcase: React.FC = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-500 rounded-full mb-4">
             <ChefHat className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-3">Our Full Food Menu</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-3">
+            Our Full Food Menu
+          </h1>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Complete curated list: combos, snacks, tiffin, meals, sides, sweets and dinner specials.
+            Complete curated list: combos, snacks, tiffin, meals, sides, sweets
+            and dinner specials.
           </p>
         </div>
 
@@ -537,7 +559,9 @@ const FullMenuShowcase: React.FC = () => {
         <section className="mb-12">
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Non-Veg Combos</h2>
+            <h2 className="text-3xl font-bold text-slate-800">
+              Non-Veg Combos
+            </h2>
             <div className="h-px bg-amber-500 w-12" />
           </div>
 
@@ -558,11 +582,13 @@ const FullMenuShowcase: React.FC = () => {
             {vegCombos.map((m) => renderMenuCard(m, "green"))}
           </div>
         </section>
-        
- <section className="mb-12">
+
+        <section className="mb-12">
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Mini Non-Veg Combos</h2>
+            <h2 className="text-3xl font-bold text-slate-800">
+              Mini Non-Veg Combos
+            </h2>
             <div className="h-px bg-amber-500 w-12" />
           </div>
 
@@ -574,7 +600,9 @@ const FullMenuShowcase: React.FC = () => {
         <section className="mb-12">
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Snacks & Rolls</h2>
+            <h2 className="text-3xl font-bold text-slate-800">
+              Snacks & Rolls
+            </h2>
             <div className="h-px bg-amber-500 w-12" />
           </div>
 
@@ -587,7 +615,9 @@ const FullMenuShowcase: React.FC = () => {
         <section className="mb-12">
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Soups & Sweets</h2>
+            <h2 className="text-3xl font-bold text-slate-800">
+              Soups & Sweets
+            </h2>
             <div className="h-px bg-amber-500 w-12" />
           </div>
 
@@ -601,7 +631,9 @@ const FullMenuShowcase: React.FC = () => {
         <section className="mb-12">
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Tiffin, Breads & Meals</h2>
+            <h2 className="text-3xl font-bold text-slate-800">
+              Tiffin, Breads & Meals
+            </h2>
             <div className="h-px bg-amber-500 w-12" />
           </div>
 
@@ -628,7 +660,9 @@ const FullMenuShowcase: React.FC = () => {
         <section className="mb-12">
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px bg-amber-500 w-12" />
-            <h2 className="text-3xl font-bold text-slate-800">Dinner Specials</h2>
+            <h2 className="text-3xl font-bold text-slate-800">
+              Dinner Specials
+            </h2>
             <div className="h-px bg-amber-500 w-12" />
           </div>
 
@@ -644,22 +678,23 @@ const FullMenuShowcase: React.FC = () => {
               <Sparkles className="w-8 h-8 text-amber-500" />
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Customization Available</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Your Menu, Your Style
+            </h2>
+            
+            <h3 className="text-2xl md:text-2xl  text-white mb-4">
+           
+              We customize both Veg and Non-Veg menus completely to your taste.
+              Choose your favorites and create the perfect combo—just the way
+              you want.
+            </h3>
 
-            <p className="text-white/90 text-lg mb-6 leading-relaxed">
-              Whether you're craving rich non-veg delights or wholesome veg classics, we offer a wide menu with endless
-              combinations. Choose what you love, mix your favorites, and create a combo that perfectly matches your taste.
-            </p>
-
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 text-white">
-              <p className="font-medium text-lg">Pick from a variety of Veg & Non-Veg options — and customize as much as you like.</p>
-              <p className="mt-2 text-white/90">Our culinary team is ready to craft a meal that’s uniquely yours.</p>
-            </div>
+            
+            
           </div>
         </div>
 
         {/* Footer note */}
-        
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Dish2 from "@/assets/dish_2.png";
 import dish3 from "@/assets/dish3.jpg";
 import dish4 from "@/assets/dish4.jpg";
 import dish5 from "@/assets/dish5.webp";
-
+import { Sparkles } from "lucide-react";
 
 const FullMenuShowcase: React.FC = () => {
   const menus = [
@@ -172,7 +172,6 @@ const FullMenuShowcase: React.FC = () => {
       ],
       image: dish5,
     },
-  
   ];
 
   const [active, setActive] = useState(0); // menu1 open initially
@@ -183,55 +182,56 @@ const FullMenuShowcase: React.FC = () => {
   const columns = Math.ceil(items.length / rows);
 
   return (
-    <div className="w-full min-h-screen bg-black text-white p-4 md:p-10 font-sans">
-      {/* ------------------ */}
-      {/* MOBILE ACCORDION */}
-      {/* ------------------ */}
-      <div className="block md:hidden">
-        {menus.map((menu, index) => (
-          <div key={index} className="border-b border-gray-700 pb-2">
-            {/* TITLE BUTTON */}
-            <button
-              onClick={() => setActive(index)}
-              className={`
+    <div>
+      <div className="w-full min-h-screen bg-black text-white p-4 md:p-10 font-sans">
+        {/* ------------------ */}
+        {/* MOBILE ACCORDION */}
+        {/* ------------------ */}
+        <div className="block md:hidden">
+          {menus.map((menu, index) => (
+            <div key={index} className="border-b border-gray-700 pb-2">
+              {/* TITLE BUTTON */}
+              <button
+                onClick={() => setActive(index)}
+                className={`
                 w-full text-left px-4 py-3 text-base font-semibold uppercase
                 ${active === index ? "text-amber-400" : "text-gray-300"}
               `}
-            >
-              {menu.title}
-            </button>
+              >
+                {menu.title}
+              </button>
 
-            {/* EXPANDED CONTENT */}
-            {active === index && (
-              <div className="px-4 pt-2 pb-4">
-                <ol className="list-decimal list-inside space-y-2 text-lg">
-                  {menu.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ol>
+              {/* EXPANDED CONTENT */}
+              {active === index && (
+                <div className="px-4 pt-2 pb-4">
+                  <ol className="list-decimal list-inside space-y-2 text-lg">
+                    {menu.items.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ol>
 
-                <img
-                  src={menu.image}
-                  alt={menu.title}
-                  className="mt-4 rounded-lg shadow-lg w-full object-cover"
-                />
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+                  <img
+                    src={menu.image}
+                    alt={menu.title}
+                    className="mt-4 rounded-lg shadow-lg w-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
 
-      {/* ------------------ */}
-      {/* DESKTOP VIEW */}
-      {/* ------------------ */}
-      <div className="hidden md:block">
-        {/* TAB HEADERS */}
-        <div className="flex overflow-x-auto border-b border-gray-600 mb-8">
-          {menus.map((menu, index) => (
-            <button
-              key={index}
-              onClick={() => setActive(index)}
-              className={`
+        {/* ------------------ */}
+        {/* DESKTOP VIEW */}
+        {/* ------------------ */}
+        <div className="hidden md:block">
+          {/* TAB HEADERS */}
+          <div className="flex overflow-x-auto border-b border-gray-600 mb-8">
+            {menus.map((menu, index) => (
+              <button
+                key={index}
+                onClick={() => setActive(index)}
+                className={`
                 px-6 py-3 text-lg font-semibold uppercase whitespace-nowrap
                 ${
                   active === index
@@ -239,51 +239,69 @@ const FullMenuShowcase: React.FC = () => {
                     : "text-gray-400 hover:text-white"
                 }
               `}
-            >
-              {menu.title}
-            </button>
-          ))}
-        </div>
+              >
+                {menu.title}
+              </button>
+            ))}
+          </div>
 
-        {/* CONTENT BOX */}
-        <div className="border border-gray-700 rounded-xl p-8 bg-[url('/wood-bg.jpg')] bg-cover">
-          <h2 className="text-2xl font-bold text-amber-400 mb-4">
-            {menus[active].title}
-          </h2>
+          {/* CONTENT BOX */}
+          <div className="border border-gray-700 rounded-xl p-8 bg-[url('/wood-bg.jpg')] bg-cover">
+            <h2 className="text-2xl font-bold text-amber-400 mb-4">
+              {menus[active].title}
+            </h2>
 
-          <div className="grid grid-cols-2 gap-8">
-            {/* LEFT SIDE — COLUMN-WISE LIST */}
-            <div className="flex gap-10">
-              {/* Generate column blocks */}
-              {[...Array(columns)].map((_, colIndex) => (
-                <div key={colIndex}>
-                  {[...Array(rows)].map((_, rowIndex) => {
-                    const itemIndex = colIndex * rows + rowIndex;
-                    const item = items[itemIndex];
+            <div className="grid grid-cols-2 gap-8">
+              {/* LEFT SIDE — COLUMN-WISE LIST */}
+              <div className="flex gap-10">
+                {/* Generate column blocks */}
+                {[...Array(columns)].map((_, colIndex) => (
+                  <div key={colIndex}>
+                    {[...Array(rows)].map((_, rowIndex) => {
+                      const itemIndex = colIndex * rows + rowIndex;
+                      const item = items[itemIndex];
 
-                    return (
-                      item && (
-                        <div key={rowIndex} className="mb-2">
-                          <span className="text-base">
-                            {itemIndex + 1}. {item}
-                          </span>
-                        </div>
-                      )
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
+                      return (
+                        item && (
+                          <div key={rowIndex} className="mb-2">
+                            <span className="text-base">
+                              {itemIndex + 1}. {item}
+                            </span>
+                          </div>
+                        )
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
 
-            {/* RIGHT SIDE — IMAGE */}
-            <div className="flex justify-center">
-              <img
-                src={menus[active].image}
-                alt={menus[active].title}
-                className="rounded-lg shadow-lg w-full max-w-md object-cover"
-              />
+              {/* RIGHT SIDE — IMAGE */}
+              <div className="flex justify-center">
+                <img
+                  src={menus[active].image}
+                  alt={menus[active].title}
+                  className="rounded-lg shadow-lg w-full max-w-md object-cover"
+                />
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="max-w-4xl mx-auto mt-10 border-t border-gray-300 pt-8">
+        <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-6">
+            <Sparkles className="w-8 h-8 text-amber-500" />
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Your Menu, Your Style
+          </h2>
+
+          <h3 className="text-2xl md:text-2xl text-white mb-4">
+            We customize both Veg and Non-Veg menus completely to your taste.
+            Choose your favorites and create the perfect combo—just the way you
+            want.
+          </h3>
         </div>
       </div>
     </div>

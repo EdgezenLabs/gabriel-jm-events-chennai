@@ -47,7 +47,7 @@ export const Navigation = () => {
             className=" cursor-pointer"
             onClick={() => scrollToSection("catering")}
           >
-            <p className="text-lg text-muted-foreground">Specialized on</p>
+            <p className="text-lg text-muted-foreground">Specialized in</p>
             <h2 className="text-2xl font-bold text-foreground">Catering</h2>
           </div>
 

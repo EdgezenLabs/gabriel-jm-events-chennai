@@ -151,7 +151,7 @@ export const Footer = () => {
             &copy; 2025 Gabriel JM Events. All rights reserved. |
             <a
               href="https://edgezenlabs.com/"
-              className="ml-1 text-indigo-600 hover:text-indigo-400 transition"
+              className="ml-1 ml-1 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent font-semibold"
             >
               EdgezenLabs
             </a>

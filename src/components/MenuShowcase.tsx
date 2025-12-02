@@ -303,7 +303,6 @@ const FullMenuShowcase: React.FC = () => {
         "Veg Lollipop",
         "Paneer Bujjiroll",
         "Culcutta Vada Pav",
-        "Veg Spring Roll (repeat)",
       ],
     },
   ];
@@ -362,7 +361,6 @@ const FullMenuShowcase: React.FC = () => {
         "Chettinad Noodles",
         "Veg Dum Biriyani",
         "Mushroom Biriyani",
-        "Mushroom Biriyani (repeat)",
       ],
     },
   ];

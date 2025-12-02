@@ -252,7 +252,7 @@ export default function TestimonialsCarousel() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Client Stories
+            Customer Reviews 
           </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-rose-500 to-orange-500 mx-auto mb-6"></div>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">

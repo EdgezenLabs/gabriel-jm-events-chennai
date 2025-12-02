@@ -44,10 +44,10 @@ export const Navigation = () => {
           </div>
 
           <div
-            className="hidden md:block cursor-pointer"
+            className=" cursor-pointer"
             onClick={() => scrollToSection("catering")}
           >
-            <p className="text-lg text-muted-foreground">Focusing on</p>
+            <p className="text-lg text-muted-foreground">Specialized on</p>
             <h2 className="text-2xl font-bold text-foreground">Catering</h2>
           </div>
 

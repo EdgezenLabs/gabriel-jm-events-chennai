@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import outer from "@/assets/outer.png";
 import reel from "@/assets/reel_1.mp4";
 import reel2 from "@/assets/reel_2.mp4";
@@ -9,12 +9,11 @@ import img2 from "@/assets/2img.jpg";
 import img3 from "@/assets/3img.jpg";
 import img4 from "@/assets/birthday-event.jpg";
 import img5 from "@/assets/image_1.jpg";
-import img6  from "@/assets/image_3.jpg";
-import  img7 from "@/assets/image_4.jpg";
-import img8 from "@/assets/img7.jpg";  
-import img9 from "@/assets/img8.jpg";  
-import img10 from "@/assets/img9.jpg";  
-
+import img6 from "@/assets/image_3.jpg";
+import img7 from "@/assets/image_4.jpg";
+import img8 from "@/assets/img7.jpg";
+import img9 from "@/assets/img8.jpg";
+import img10 from "@/assets/img9.jpg";
 
 interface WorkItem {
   id: number;
@@ -30,7 +29,7 @@ const works: WorkItem[] = [
   { id: 4, type: "video", src: reel4 },
 
   { id: 5, type: "image", src: outer },
-  { id: 6, type: "image", src: img1},
+  { id: 6, type: "image", src: img1 },
   { id: 7, type: "image", src: img2 },
   { id: 8, type: "image", src: img3 },
   { id: 9, type: "image", src: img4 },
@@ -44,9 +43,17 @@ const works: WorkItem[] = [
 ];
 
 export default function OurWorks() {
-  // separate videos + images
   const videoWorks = works.filter((item) => item.type === "video");
   const imageWorks = works.filter((item) => item.type === "image");
+
+  // Store mute state for each video
+  const [mutedState, setMutedState] = useState<{ [key: number]: boolean }>(
+    Object.fromEntries(videoWorks.map((v) => [v.id, true]))
+  );
+
+  const toggleMute = (id: number) => {
+    setMutedState((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   return (
     <section id="ourworks" className="py-16 bg-white">
@@ -67,16 +74,24 @@ export default function OurWorks() {
               {videoWorks.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-2xl overflow-hidden shadow-md"
+                  className="relative rounded-2xl overflow-hidden shadow-md"
                 >
                   <video
                     src={item.src}
                     className="w-full h-[380px] object-cover bg-black"
                     autoPlay
                     loop
-                    muted
+                    muted={mutedState[item.id]}
                     playsInline
                   />
+
+                  {/* Mute/Unmute Button */}
+                  <button
+                    onClick={() => toggleMute(item.id)}
+                    className="absolute bottom-3 right-3 bg-black/60 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm hover:bg-black/80 transition"
+                  >
+                    {mutedState[item.id] ? "🔇" : "🔊"}
+                  </button>
                 </div>
               ))}
             </div>
@@ -97,7 +112,6 @@ export default function OurWorks() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

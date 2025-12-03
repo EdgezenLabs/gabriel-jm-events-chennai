@@ -1,6 +1,7 @@
 import { Award, Users } from "lucide-react";
 import jmEventsLogo from "@/assets/image_2.jpg";
 import event from "@/assets/event_img.png";
+import owner from "@/assets/owner.jpg";
 
 export function About() {
   return (
@@ -50,13 +51,13 @@ export function About() {
               </div>
             </div>
           </div>
-          {/* <div className="relative">
+          <div className="relative">
             <img
-              src={jmEventsLogo}
+              src={owner}
               alt="Gabriel JM Events"
               className="rounded-2xl shadow-2xl"
             />
-          </div> */}
+          </div>
         </div>
         <div className="mt-12 grid md:grid-cols-2 gap-12 items-center">
           <div className="relative">

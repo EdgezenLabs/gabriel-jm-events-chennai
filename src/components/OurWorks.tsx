@@ -6,6 +6,9 @@ import img1 from "@/assets/1img.jpeg";
 import img2 from "@/assets/2img.jpg";
 import img3 from "@/assets/3img.jpg";
 import img4 from "@/assets/birthday-event.jpg";
+import img5 from "@/assets/image_1.jpg";
+import img6  from "@/assets/image_3.jpg";
+import  img7 from "@/assets/image_4.jpg";
 
 
 interface WorkItem {
@@ -26,7 +29,10 @@ const works: WorkItem[] = [
   { id: 7, type: "image", src: img2 },
   { id: 8, type: "image", src: img3 },
   { id: 9, type: "image", src: img4 },
-  // { id: 10, type: "image", src: img5 },
+  { id: 10, type: "image", src: img5 },
+  { id: 11, type: "image", src: img6 },
+  { id: 12, type: "image", src: img7 },
+  { id: 13, type: "image", src: img5 },
 ];
 
 export default function OurWorks() {

@@ -71,6 +71,12 @@ export const Navigation = () => {
             >
               Gallery
             </button>
+             <button
+              onClick={() => scrollToSection("ourworks")}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Our Works
+            </button>
             <button
               onClick={() => scrollToSection("about")}
               className="text-foreground hover:text-primary transition-colors font-medium"
@@ -124,6 +130,7 @@ export const Navigation = () => {
             >
               Gallery
             </button>
+            
             <button
               onClick={() => scrollToSection("about")}
               className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors font-medium"

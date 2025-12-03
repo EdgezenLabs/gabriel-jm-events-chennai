@@ -44,7 +44,9 @@ export const Contact = () => {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Phone</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    Phone
+                  </h3>
                   <a
                     href="tel:+919566144155"
                     className="text-lg text-muted-foreground hover:text-primary transition-colors"
@@ -61,12 +63,14 @@ export const Contact = () => {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Email</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    Email
+                  </h3>
                   <a
-                    href="mailto:info@gabrieljmevents.com"
+                    href="mailto:gabrieljmcaterers@gmail.com"
                     className="text-lg text-muted-foreground hover:text-primary transition-colors"
                   >
-                    info@gabrieljmevents.com
+                    gabrieljmcaterers@gmail.com
                   </a>
                 </div>
               </CardContent>
@@ -78,16 +82,28 @@ export const Contact = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Location</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    Our Corporate Office
+                  </h3>
                   <p className="text-lg text-muted-foreground">
-                    Chennai, Tamil Nadu, India
+                    <a
+                      href="https://maps.app.goo.gl/qfdCTcZ4pGSUCrDR6?g_st=ipc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      // className="text-blue-600 hover:underline"
+                    >
+                      No.14/5, Hindu Colony, 2nd Main Road, Puzhuthivakkam,
+                      Chennai.
+                    </a>
                   </p>
                 </div>
               </CardContent>
             </Card>
 
             <div className="pt-4">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Business Hours</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Business Hours
+              </h3>
               <div className="space-y-2 text-muted-foreground">
                 <p className="flex justify-between">
                   <span>Monday - Saturday:</span>
@@ -100,56 +116,35 @@ export const Contact = () => {
               </div>
             </div>
           </div>
+          <Card
+            className="animate-fade-in border-border/50"
+            style={{ animationDelay: "200ms" }}
+          >
+            <CardContent className="p-0 overflow-hidden rounded-xl">
 
-          <Card className="animate-fade-in border-border/50" style={{ animationDelay: "200ms" }}>
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Send us a message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Input
-                    type="text"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="bg-background"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="bg-background"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="tel"
-                    placeholder="Your Phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    required
-                    className="bg-background"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Tell us about your event..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
-                    className="bg-background"
-                  />
-                </div>
-                <Button type="submit" className="w-full gap-2" size="lg">
-                  <Send className="h-4 w-4" />
-                  Send Message
-                </Button>
-              </form>
+              {/* Google Map Embed */}
+              <div className="w-full h-[350px] sm:h-[450px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.64566241431!2d80.197589!3d12.866364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526741f56317e1%3A0x63c6d1a486d5e6a3!2sHindu%20Colony%202nd%20Main%20Rd%2C%20Puzhuthivakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+
+              <div className="p-6 text-center">
+                <a
+                  href="https://maps.app.goo.gl/qfdCTcZ4pGSUCrDR6?g_st=ipc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Open in Google Maps →
+                </a>
+              </div>
             </CardContent>
           </Card>
         </div>

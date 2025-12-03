@@ -11,6 +11,7 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import CateringServices from "@/components/CateringServices";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import MenuShowcase from "@/components/MenuShowcase";
+import OurWorks from "@/components/OurWorks";
 
 
 const Index = () => {
@@ -72,6 +73,7 @@ const Index = () => {
       <CateringServices/>
       <MenuShowcase />
       <WhyChooseUs/>
+      <OurWorks/>
       <Gallery />
       <About />
       <Portfolio />

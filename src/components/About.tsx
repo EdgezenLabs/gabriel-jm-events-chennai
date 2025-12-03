@@ -1,5 +1,6 @@
 import { Award, Users } from "lucide-react";
 import jmEventsLogo from "@/assets/image_2.jpg";
+import event from "@/assets/event_img.png";
 
 export function About() {
   return (
@@ -14,16 +15,28 @@ export function About() {
               About Gabriel JM Events
             </h2>
             <p className="text-lg text-gray-700 mb-6">
-              With over a decade of experience in event management, we've
-              perfected the art of creating extraordinary experiences. Our
-              passionate team of event specialists brings creativity, precision,
-              and dedication to every project.
+              With over a decade of expertise in the event and catering
+              industry, we have mastered the art of delivering unforgettable
+              experiences. Our passionate team combines creativity, precision,
+              and dedication to bring every occasion to life—exactly the way you
+              envision it.
             </p>
+
+            <p className="text-lg text-gray-700 mb-6">
+              At the heart of our service is world-class catering. From
+              authentic Chettinad delicacies to rich Continental spreads, we
+              curate menus that delight every palate. Whether it’s a grand
+              celebration or an intimate gathering, our chefs ensure the perfect
+              blend of taste, presentation, and quality.
+            </p>
+
             <p className="text-lg text-gray-700 mb-8">
-              From the initial concept to the final moment, we handle every
-              detail with care, ensuring your event exceeds expectations and
-              leaves a lasting impression on all who attend.
+              From the first concept to the final moment, we handle every detail
+              with utmost care—ensuring your event not only meets but exceeds
+              expectations, leaving a lasting impression on everyone who
+              attends.
             </p>
+
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
                 <Award className="h-12 w-12 text-amber-600 mx-auto mb-2" />
@@ -36,6 +49,22 @@ export function About() {
                 <p className="text-gray-600">Happy Clients</p>
               </div>
             </div>
+          </div>
+          {/* <div className="relative">
+            <img
+              src={jmEventsLogo}
+              alt="Gabriel JM Events"
+              className="rounded-2xl shadow-2xl"
+            />
+          </div> */}
+        </div>
+        <div className="mt-12 grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <img
+              src={event}
+              alt="Gabriel JM Events"
+              className="rounded-2xl shadow-2xl"
+            />
           </div>
           <div className="relative">
             <img

@@ -2,6 +2,8 @@ import React from "react";
 import outer from "@/assets/outer.png";
 import reel from "@/assets/reel_1.mp4";
 import reel2 from "@/assets/reel_2.mp4";
+import reel3 from "@/assets/reel3.mp4";
+import reel4 from "@/assets/reel4.mp4";
 import img1 from "@/assets/1img.jpeg";
 import img2 from "@/assets/2img.jpg";
 import img3 from "@/assets/3img.jpg";
@@ -9,6 +11,9 @@ import img4 from "@/assets/birthday-event.jpg";
 import img5 from "@/assets/image_1.jpg";
 import img6  from "@/assets/image_3.jpg";
 import  img7 from "@/assets/image_4.jpg";
+import img8 from "@/assets/img7.jpg";  
+import img9 from "@/assets/img8.jpg";  
+import img10 from "@/assets/img9.jpg";  
 
 
 interface WorkItem {
@@ -21,8 +26,8 @@ interface WorkItem {
 const works: WorkItem[] = [
   { id: 1, type: "video", src: reel },
   { id: 2, type: "video", src: reel2 },
-  { id: 3, type: "video", src: reel },
-  { id: 4, type: "video", src: reel2 },
+  { id: 3, type: "video", src: reel3 },
+  { id: 4, type: "video", src: reel4 },
 
   { id: 5, type: "image", src: outer },
   { id: 6, type: "image", src: img1},
@@ -33,6 +38,9 @@ const works: WorkItem[] = [
   { id: 11, type: "image", src: img6 },
   { id: 12, type: "image", src: img7 },
   { id: 13, type: "image", src: img5 },
+  { id: 14, type: "image", src: img8 },
+  { id: 15, type: "image", src: img9 },
+  { id: 16, type: "image", src: img10 },
 ];
 
 export default function OurWorks() {

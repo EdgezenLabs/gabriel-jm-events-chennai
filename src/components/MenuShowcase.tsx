@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Dish from "@/assets/photo_dish.jpeg";
+import menu1 from "@/assets/mb.webp";
+import menu2 from "@/assets/mb1.avif";
+import menu3 from "@/assets/3menu.jpg";
+import menu4 from "@/assets/4menu.webp";
 import Dish2 from "@/assets/dish_2.png";
 import dish3 from "@/assets/dish3.jpg";
 import dish4 from "@/assets/dish4.jpg";
@@ -14,14 +18,14 @@ const FullMenuShowcase: React.FC = () => {
         "Welcome Drink",
         "Kasi Halwa",
         "Bread Halwa",
-        "Chicken (2 Pcs)",
-        "Chicken Lollipop (2 Pcs)",
-        "Tandoori Chicken (1/4)",
+        "Chicken 65",
+        "Chicken Lollipop",
+        "Tandoori Chicken",
         "Chicken Biriyani",
         "Chicken Masala",
         "Onion Raitha",
         "Brinjal Gravy",
-        "Pulka (2 Pcs)",
+        "Pulka",
         "National Poriyal",
         "White Rice",
         "Veg Sambar",
@@ -34,14 +38,14 @@ const FullMenuShowcase: React.FC = () => {
         "Kulfi",
         "Sweet Beeda",
       ],
-      image: Dish2,
+      image: menu1,
     },
     {
       title: "Menu-2",
       items: [
         "Mutton Masala",
         "Welcome Drink",
-        "Pineapple Pudding", 
+        "Pineapple Pudding",
         "Non Veg Soup",
         "Mutton Pepper Fry",
         "Mutton Biriyani",
@@ -49,7 +53,7 @@ const FullMenuShowcase: React.FC = () => {
         "Mutton Paya",
         "Onion Raitha",
         "Brinjal Gravy",
-        "Mutton Kola (1 Pc)",
+        "Mutton Kola",
         "Parota",
         "Water Bottle",
         "Curd Rice",
@@ -57,7 +61,7 @@ const FullMenuShowcase: React.FC = () => {
         "Choco Bar",
         "Sweet Beeda",
       ],
-      image: Dish2,
+      image: menu2,
     },
     {
       title: "Menu-3",
@@ -68,10 +72,10 @@ const FullMenuShowcase: React.FC = () => {
         "Pineapple Pudding",
         "Non Veg Soup",
         "Chicken Biriyani",
-        "Chicken (2 Pcs)",
+        "Chicken 65",
         "Chicken Masala",
-        "Chicken Lollipop (2 Pcs)",
-        "Tandoori Chicken (1/4)",
+        "Chicken Lollipop",
+        "Tandoori Chicken",
         "Idiyappam & Paya",
         "Parota",
         "Pulka (2 Pcs)",
@@ -87,7 +91,7 @@ const FullMenuShowcase: React.FC = () => {
         "Kulfi",
         "Ice Cream / Sweet Beeda",
       ],
-      image: Dish,
+      image: menu3,
     },
     {
       title: "Menu-4",
@@ -100,8 +104,8 @@ const FullMenuShowcase: React.FC = () => {
         "Mutton Pepper Fry",
         "Mutton Masala",
         "Mutton Biriyani",
-        "Mutton Kola (1 Pc)",
-        "Chicken 65 (2 Pcs)",
+        "Mutton Kola",
+        "Chicken 65",
         "Nethili Fry",
         "Chicken Kotthu Parota",
         "Brinjal Mocha Fry",
@@ -115,7 +119,7 @@ const FullMenuShowcase: React.FC = () => {
         "Parota",
         "Rasam, Appalam",
       ],
-      image: Dish,
+      image: menu4,
     },
     {
       title: "Menu-5",
@@ -150,7 +154,7 @@ const FullMenuShowcase: React.FC = () => {
         "Javarasi Vadam",
         "Water Bottle",
       ],
-      image: dish3,
+      image: dish4,
     },
     {
       title: "Menu-6",
@@ -183,7 +187,7 @@ const FullMenuShowcase: React.FC = () => {
         "Javarasi Vadam",
         "Water Bottle",
       ],
-      image: dish4,
+      image: Dish2,
     },
     {
       title: "Menu-7",

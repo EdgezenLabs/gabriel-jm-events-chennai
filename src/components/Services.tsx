@@ -1,36 +1,44 @@
-import { Crown, Briefcase, Cake, Heart, Users, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import sampleImage from "@/assets/owner.jpg"; 
+
+// SERVICE IMAGES
+import culturalImg from "@/assets/cultural.webp";
+import weddingImg from "@/assets/wed.jpg";
+import specialImg from "@/assets/spl.jpg";
+import socialImg from "@/assets/social.webp";
+import birthdayImg from "@/assets/bdayparty.jpg";
+import corporateImg from "@/assets/corpor.jpeg";
 
 const services = [
   {
-    icon: Heart,
-    title: "Weddings",
-    description: "Elegant wedding ceremonies and receptions tailored to your dreams. Traditional and contemporary styles.",
-  },
-  {
-    icon: Briefcase,
-    title: "Corporate Events",
-    description: "Professional conferences, seminars, and corporate gatherings that leave a lasting impression.",
-  },
-  {
-    icon: Cake,
-    title: "Birthday Parties",
-    description: "Memorable birthday celebrations for all ages, from intimate gatherings to grand celebrations.",
-  },
-  {
-    icon: Crown,
+    src: culturalImg,
     title: "Cultural Events",
-    description: "Traditional celebrations and cultural festivals executed with authenticity and grandeur.",
+    category: "Cultural",
   },
   {
-    icon: Users,
-    title: "Social Gatherings",
-    description: "Anniversaries, reunions, and special occasions crafted with care and attention to detail.",
+    src: weddingImg,
+    title: "Wedding Planning",
+    category: "Weddings",
   },
   {
-    icon: Sparkles,
+    src: specialImg,
     title: "Special Occasions",
-    description: "Custom events for engagements, housewarming, and any milestone worth celebrating.",
+    category: "Special Events",
+  },
+  {
+    src: socialImg,
+    title: "Social Gatherings",
+    category: "Social",
+  },
+  {
+    src: birthdayImg,
+    title: "Birthday Parties",
+    category: "Birthdays",
+  },
+  {
+    src: corporateImg,
+    title: "Corporate Events",
+    category: "Corporate",
   },
 ];
 
@@ -38,8 +46,10 @@ export const Services = () => {
   return (
     <section id="services" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -47,22 +57,42 @@ export const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in border-border/50"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <CardContent className="p-8">
-                <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="h-8 w-8 text-primary" />
+        {/* Layout Wrapper */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+          {/* LEFT SIDE IMAGE */}
+          <div>
+            <img src={sampleImage} alt="Service Banner" className="w-full h-full object-cover rounded-2xl shadow-lg" />
+          </div>
+
+          {/* RIGHT SIDE - SERVICE CARDS (Gallery Style) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] shadow-md"
+              >
+                {/* Image */}
+                <img
+                  src={service.src}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+
+                {/* Text */}
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <p className="text-sm font-semibold text-primary mb-1">
+                    {service.category}
+                  </p>
+                  <h3 className="text-xl font-bold">{service.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

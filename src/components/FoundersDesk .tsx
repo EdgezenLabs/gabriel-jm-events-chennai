@@ -47,7 +47,7 @@ export const FoundersDesk = () => {
             <p className="mb-6">
               Our culinary strength lies in serving authentic
               <strong> Chettinad flavours</strong>, rich
-              <strong> South Indian traditional meals</strong>, and
+              <strong> South Indian traditional dishes</strong>, and
               modern <strong> Continental dishes</strong> crafted by skilled
               chefs. Every dish is prepared with care, fresh ingredients, and a
               commitment to hygiene that our clients deeply value.
@@ -66,7 +66,7 @@ export const FoundersDesk = () => {
 
             {/* Founder details */}
             <div className="mt-10">
-              <p className="text-2xl font-bold">Jas Milton</p>
+              <p className="text-2xl font-bold">Jass Milton</p>
               <p className="text-muted-foreground">Proprietor</p>
               {/* <p className="mt-1 font-medium">
                 +91 97107 71155 &nbsp; | &nbsp; +91 97107 70055

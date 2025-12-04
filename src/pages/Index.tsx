@@ -12,6 +12,7 @@ import CateringServices from "@/components/CateringServices";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import MenuShowcase from "@/components/MenuShowcase";
 import OurWorks from "@/components/OurWorks";
+import { FoundersDesk } from "@/components/FoundersDesk ";
 
 
 const Index = () => {
@@ -69,6 +70,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
+      <FoundersDesk/>
       <Services />
       <CateringServices/>
       <MenuShowcase />

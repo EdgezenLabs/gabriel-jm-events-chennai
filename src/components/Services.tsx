@@ -1,11 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
-import sampleImage from "@/assets/owner.jpg"; 
 
 // SERVICE IMAGES
 import culturalImg from "@/assets/cultural.webp";
 import weddingImg from "@/assets/wed.jpg";
 import specialImg from "@/assets/spl.jpg";
-import socialImg from "@/assets/social.webp";
+import socialImg from "@/assets/social(1)(1).png";
 import birthdayImg from "@/assets/bdayparty.jpg";
 import corporateImg from "@/assets/corpor.jpeg";
 
@@ -57,43 +56,34 @@ export const Services = () => {
           </p>
         </div>
 
-        {/* Layout Wrapper */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {/* SERVICES GRID (3 columns on large screens) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] shadow-md"
+            >
+              {/* Image */}
+              <img
+                src={service.src}
+                alt={service.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
 
-          {/* LEFT SIDE IMAGE */}
-          <div>
-            <img src={sampleImage} alt="Service Banner" className="w-full h-full object-cover rounded-2xl shadow-lg" />
-          </div>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
 
-          {/* RIGHT SIDE - SERVICE CARDS (Gallery Style) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[4/3] shadow-md"
-              >
-                {/* Image */}
-                <img
-                  src={service.src}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-
-                {/* Text */}
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <p className="text-sm font-semibold text-primary mb-1">
-                    {service.category}
-                  </p>
-                  <h3 className="text-xl font-bold">{service.title}</h3>
-                </div>
+              {/* Text */}
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <p className="text-sm font-semibold text-primary mb-1">
+                  {service.category}
+                </p>
+                <h3 className="text-xl font-bold">{service.title}</h3>
               </div>
-            ))}
-          </div>
-
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
